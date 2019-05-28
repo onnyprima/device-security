@@ -1,0 +1,19 @@
+{
+    "name": "onnysan/device-security",
+    "description": "modul sekuriti untuk mendeteksi perangkat",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "onnyprima",
+            "email": "onnyprima@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Security\\": "src/"
+        }
+    }
+}
