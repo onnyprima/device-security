@@ -5,7 +5,7 @@ namespace Security\Lib\Services\Mysql;
 class MysqlQuery
 {
 
-    static function insertQuery()
+    static function insertPerangkatQuery()
     {
         $sql = "INSERT INTO tb_perangkat ("
                 . "NOMOR, "
@@ -24,6 +24,35 @@ class MysqlQuery
         return $sql;
     }
 
+    static function insertAkunQuery()
+    {
+        $sql = "INSERT INTO tb_akun_aplikasi ("
+                . "ID_AKUN,"
+                . "AKUN_DESKRIPSI,"
+                . "AKUN_DELETE_AT,"
+                . "AKUN_CREATE_AT,"
+                . "AKUN_LAST_UPDATE,"
+                . "AKUN_CREATE_BY) "
+                . "VALUES ("
+                . ":ID_AKUN,"
+                . ":AKUN_DESKRIPSI,"
+                . ":AKUN_DELETE_AT,"
+                . ":AKUN_CREATE_AT,"
+                . ":AKUN_LAST_UPDATE,"
+                . ":AKUN_CREATE_BY)";
+        return $sql;
+    }
+    
+    static function insertPerangkatDanAkun()
+    {
+        $sql = "INSERT INTO tb_perangkat_dan_akun ("
+                . "NOMOR,"
+                . "ID_AKUN) "
+                . "VALUES ("
+                . ":NOMOR,"
+                . ":ID_AKUN) ";
+        return $sql;
+    }
 }
 
 /* 

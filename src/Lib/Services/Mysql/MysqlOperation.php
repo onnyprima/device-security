@@ -6,8 +6,10 @@ use Security\Config\Connection;
 use Security\Lib\Services\OperationInterface;
 use Security\Lib\Services\Mysql\MysqlQuery;
 use Security\Lib\Services\Model\Perangkat;
+use Security\Lib\Services\Model\Akun;
 
-class MysqlOperation implements OperationInterface {
+class MysqlOperation implements OperationInterface
+{
 
     public $conn;
 
@@ -17,22 +19,63 @@ class MysqlOperation implements OperationInterface {
         $this->conn = $connection->getConn();
     }
 
+    public function closeConnection()
+    {
+        $this->conn = null;
+    }
+
     public function addPerangkat(Perangkat $perangkat)
     {
-        $query = MysqlQuery::insertQuery();
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute($perangkat->getAsArray());
-        
+        $query = MysqlQuery::insertPerangkatQuery();
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($perangkat->getAsArray());
+        } catch (\PDOException $exc) {
+            throw $exc;
+        }
+
+        $this->closeConnection();
+
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+        return true;
     }
 
-    public function addAkun()
+    public function addAkun(Akun $akun)
     {
-        
+        $query = MysqlQuery::insertAkunQuery();
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($akun->getAsArray());
+        } catch (\PDOException $exc) {
+            throw $exc;
+        }
+        $this->closeConnection();
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+        return true;
     }
 
-    public function addPerangkatDanAkun()
+    public function addPerangkatDanAkun(Perangkat $perangkat, Akun $akun)
     {
-        
+        $query = MysqlQuery::insertPerangkatDanAkun();
+        $param = [
+            "NOMOR" => $perangkat->getNomor(),
+            "ID_AKUN" => $akun->getIdAkun()
+        ];
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($param);
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
+        $this->closeConnection();
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+        return true;
     }
 
     public function addSession()

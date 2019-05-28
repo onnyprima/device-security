@@ -3,6 +3,7 @@
 namespace Security\Lib\Services;
 
 use Security\Lib\Services\Model\Perangkat;
+use Security\Lib\Services\Model\Akun;
 
 interface OperationInterface {
 
@@ -12,8 +13,8 @@ interface OperationInterface {
     public function getSessionById();
 
     public function addPerangkat(Perangkat $perangkat);
-    public function addAkun();
-    public function addPerangkatDanAkun();
+    public function addAkun(Akun $akun);
+    public function addPerangkatDanAkun(Perangkat $p, Akun $a);
     public function addSession();
 
     public function updatePerangkat();
