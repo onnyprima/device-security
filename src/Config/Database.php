@@ -5,8 +5,8 @@
 global $db;
 $db["default"] = [
     'hostname' => 'localhost',
-    'username' => 'root',
-    'password' => '',
+    'username' => 'sa',
+    'password' => 'admin1234',
     'database' => 'db_security',
-    'driver' => 'pdo_mysql'
+    'driver' => 'pdo_sqlsrv'
 ];

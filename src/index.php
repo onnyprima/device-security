@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Security\Lib\Services\Model\Perangkat;
 use Security\Lib\Services\Model\Akun;
 use Security\Lib\Services\Mysql\MysqlOperation;
+use Security\Lib\Services\Mssql\MssqlOperation;
 
 class Test
 {
@@ -13,7 +14,7 @@ class Test
 
     public function __construct()
     {
-        $operation = new MysqlOperation();
+        $operation = new MssqlOperation();
         $this->operation = $operation;
     }
 
@@ -46,8 +47,15 @@ class Test
         $akun->setIdAkun("onny");
         $this->operation->addPerangkatDanAkun($perangkat, $akun);
     }
+    
+    public function testSqlSrv()
+    {
+        $conn = new \Security\Config\Connection();
+        $koneksi = $conn->pdoSqlSrvConn();
+        print_r($koneksi);
+    }
 }
 
 
 $test = new Test();
-$test->addPerangkatDanAkun();
+$test->addAkun();
