@@ -1,5 +1,7 @@
 <?php
 
+namespace Security\Entity;
+
 /**
  * @Entity
  * @Table(name="session")
@@ -27,7 +29,22 @@ class Session
     /**
      * @Column(type="datetime", nullable=true)
      */
+    protected $login_at;
+
+    /**
+     * @Column(type="datetime", nullable=true)
+     */
     protected $logout_at;
+
+    function getLogin_at()
+    {
+        return $this->login_at;
+    }
+
+    function setLogin_at($login_at)
+    {
+        $this->login_at = $login_at;
+    }
 
     function getId()
     {

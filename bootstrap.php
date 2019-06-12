@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManager;
 require_once 'vendor/autoload.php';
 
 $isDevMode = true;
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/Entity"), $isDevMode);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/src/Entity"), $isDevMode);
 
 $connectionParams = array(
     'dbname' => 'db_securityx',
@@ -16,13 +16,9 @@ $connectionParams = array(
     'driver' => 'pdo_sqlsrv',
 );
 
-$conn = array(
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db.sqlite',
-);
+global $entityManager;
 
 $entityManager = EntityManager::create($connectionParams, $config);
-
 
 /* 
  * To change this license header, choose License Headers in Project Properties.

@@ -1,5 +1,9 @@
 <?php
+namespace Security\Entity;
 
+use Security\Entity\Perangkat;
+use Security\Entity\Akun;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @Entity
  * @Table(name="tb_perangkat_dan_akun")
@@ -96,12 +100,12 @@ class AkunDanPerangkat
         return $this->id_akun;
     }
 
-    function setId_perangkat($id_perangkat)
+    function setId_perangkat(Perangkat $id_perangkat)
     {
         $this->id_perangkat = $id_perangkat;
     }
 
-    function setId_akun($id_akun)
+    function setId_akun(Akun $id_akun)
     {
         $this->id_akun = $id_akun;
     }

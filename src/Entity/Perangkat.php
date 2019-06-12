@@ -1,5 +1,5 @@
 <?php
-
+namespace Security\Entity;
 /**
  * @Entity 
  * @Table(name="tb_perangkat")

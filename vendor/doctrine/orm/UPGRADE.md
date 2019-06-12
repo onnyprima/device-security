@@ -1,10 +1,3 @@
-# Upgrade to 2.7
-
-## Deprecated: `Doctrine\ORM\EntityManagerInterface#copy()`
-
-Method `Doctrine\ORM\EntityManagerInterface#copy()` never got its implementation and is deprecated.
-It will be removed in 3.0.
-
 # Upgrade to 2.6
 
 ## Added `Doctrine\ORM\EntityRepository::count()` method
