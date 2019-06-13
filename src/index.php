@@ -82,7 +82,52 @@ class Test
 
 }
 
-$test = new Test();
-$data = $test->createSession();
+class RemoverTest
+{
 
-print_r($data);
+    /**
+     * return false if fail
+     */
+    public function removeAkun()
+    {
+        $akunRemover = new \Security\Lib\Services\AkunRemover();
+        $akunRemover->remove('1560310387');
+    }
+
+    /**
+     * return false if fail
+     */
+    public function unremoveAkun()
+    {
+        $akunRemover = new \Security\Lib\Services\AkunRemover();
+        $akunRemover->unRemove('1560310387');
+    }
+
+    public function removePerangkat()
+    {
+        $perangkarRemover = new \Security\Lib\Services\PerangkatRemover();
+        $perangkarRemover->remove('1560313600');
+    }
+
+    public function unRemovePerangkat()
+    {
+        $perangkarRemover = new \Security\Lib\Services\PerangkatRemover();
+        $perangkarRemover->unRemove('1560313600');
+    }
+
+    public function removeAkunPerangkat()
+    {
+        $akunPerangkatRemover = new \Security\Lib\Services\Security\AkunPerangkatRemover();
+        $akunPerangkatRemover->remove(5);
+    }
+
+    public function unRemoveAkunPerangkat()
+    {
+        $akunPerangkatRemover = new \Security\Lib\Services\Security\AkunPerangkatRemover();
+        $akunPerangkatRemover->unRemove(5);
+    }
+
+}
+
+$remover = new RemoverTest();
+$remover->unRemoveAkunPerangkat();
