@@ -129,5 +129,35 @@ class RemoverTest
 
 }
 
-$remover = new RemoverTest();
-$remover->unRemoveAkunPerangkat();
+class ReaderTest
+{
+
+    public function getPerangkat()
+    {
+        $perangkat = new \Security\Lib\Services\Security\PerangkatReader();
+        return $perangkat->getPerangkatById('1560313600');
+    }
+
+    public function getListPerangkat()
+    {
+        $perangkat = new \Security\Lib\Services\Security\PerangkatReader();
+        return $perangkat->getListPerangkat();
+    }
+
+    public function getAkun()
+    {
+        $perangkat = new \Security\Lib\Services\Security\AkunReader();
+        return $perangkat->getAkunById('1560310387');
+    }
+
+    public function getListAkun()
+    {
+        $perangkat = new \Security\Lib\Services\Security\AkunReader();
+        return $perangkat->getListAkun();
+    }
+
+}
+
+$test = new ReaderTest();
+$result = $test->getListAkun();
+var_dump($result);
