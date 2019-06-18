@@ -14,7 +14,7 @@ class AkunDanPerangkatReader
         $this->em = Em::getEM();
     }
 
-    public function getAkunDanPerangkat($id_perangkat, $id_akun)
+    public function getAkunDanPerangkat($id_akun, $id_perangkat)
     {
         try {
             $qb = $this->em->createQueryBuilder();
@@ -29,6 +29,7 @@ class AkunDanPerangkatReader
                     ->getQuery();
 
             $result = $q->getScalarResult();
+            
             if (count($q->getArrayResult()) > 0) {
                 $data = [];
                 foreach ($result as $key => $akun) {
@@ -42,7 +43,7 @@ class AkunDanPerangkatReader
                         "create_by" => $akun["ap_create_by"]
                     ]);
                 }
-                return $data;
+                return $data[0];
             }
             return [];
         } catch (\Doctrine\ORM\Query\QueryException $exc) {

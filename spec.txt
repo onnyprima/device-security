@@ -1,0 +1,4 @@
+spec :
+	- getDevice
+	- getListDevice
+	- getDeletedDevice

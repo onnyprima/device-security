@@ -83,7 +83,7 @@ class PerangkatReader
             echo $exc->getMessage();
         }
     }
-
+    
     /**
      * jika ditemukan perangkat dan cek status
      * @param type $id

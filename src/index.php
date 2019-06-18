@@ -163,11 +163,26 @@ class ReaderTest
         $ap =  new \Security\Lib\Services\Security\AkunDanPerangkatReader();
         return $ap->getAkunDanPerangkat('1560313600', '1560310387');
     }
+    
+    public function sectest()
+    {
+        $s= new Security\Lib\Services\Security();
+        
+        $perangkatAllowed = $s->isPerangkatAllowed('356938035643809');
+        $akunAllowed = $s->isAkunAllowed('bot');
+        $akunPerangkatAllowed = $s->isAkunDanPerangkatAllowed("356938035643809", "bot");
+        
+        return [
+            "perangkat" => $perangkatAllowed,
+            "akun" => $akunAllowed,
+            "akunDanPerangkat" => $akunPerangkatAllowed
+        ];
+    }
 
 }
 
 $test = new ReaderTest();
-$res = $test->getListPerangkat();
+$res = $test->sectest();
 var_dump($res);
 
 //$test = new ReaderTest();
