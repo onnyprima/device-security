@@ -1,5 +1,7 @@
 <?php
+
 namespace Security\Entity;
+
 /**
  * @Entity 
  * @Table(name="tb_perangkat")
@@ -14,9 +16,20 @@ class Perangkat
     protected $id;
 
     /**
-     * @Column(type="string", nullable=true)
+     * @ManyToOne(targetEntity="Tipe")
+     * @JoinColumn(name="tipe_perangkat", referencedColumnName="id")
+     */
+    protected $tipe_perangkat;
+
+    /**
+     * @Column(type="text", nullable=true)
      */
     protected $deskripsi_perangkat;
+    
+    /**
+     * @Column(type="text", nullable=true)
+     */
+    protected $deskripsi_lokasi_perangkat;
 
     /**
      * @Column(type="datetime", nullable=true)
@@ -97,7 +110,6 @@ class Perangkat
     {
         $this->create_by = $create_by;
     }
-
 
 }
 

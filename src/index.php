@@ -155,9 +155,15 @@ class ReaderTest
         $perangkat = new \Security\Lib\Services\Security\AkunReader();
         return $perangkat->getListAkun();
     }
+    
+    public function getAkunDanPerangat()
+    {
+        $ap =  new \Security\Lib\Services\Security\AkunDanPerangkatReader();
+        return $ap->getAkunDanPerangkat('1560313600', '1560310387');
+    }
 
 }
 
 $test = new ReaderTest();
-$result = $test->getListAkun();
+$result = $test->getAkunDanPerangat();
 var_dump($result);

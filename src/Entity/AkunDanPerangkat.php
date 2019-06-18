@@ -49,20 +49,25 @@ class AkunDanPerangkat
      * @Column(type="string", nullable=true)
      */
     protected $create_by;
-
+    
+    function getId()
+    {
+        return $this->id;
+    }
+    
     function getDelete_at()
     {
-        return $this->delete_at;
+        return $this->delete_at === null ? $this->delete_at : $this->delete_at->format('Y-m-d H:i:s');
     }
 
     function getCreate_at()
     {
-        return $this->create_at;
+        return $this->create_at === null ? $this->create_at : $this->create_at->format('Y-m-d H:i:s');
     }
 
     function getLast_update()
     {
-        return $this->last_update;
+        return $this->last_update === null ? $this->last_update : $this->last_update->format('Y-m-d H:i:s');
     }
 
     function getCreate_by()
