@@ -14,7 +14,9 @@ class Test
         $createPerangkat = new \Security\Lib\Services\Security\PerangkatCreator();
         $data = [
             "id_perangkat" => time(),
-            "deskripsi_perangkat" => "",
+            "tipe_perangkat" => 1,
+            "deskripsi_lokasi_perangkat" => "-",
+            "deskripsi_perangkat" => "-",
             "delete_at" => null,
             "last_update" => date('Y-m-d H:i:s'),
             'create_at' => date('Y-m-d H:i:s'), //strtotime('2019-02-01 00:00:00')),// current = date('Y-m-d H:i:s')
@@ -165,5 +167,9 @@ class ReaderTest
 }
 
 $test = new ReaderTest();
-$result = $test->getAkunDanPerangat();
-var_dump($result);
+$res = $test->getListPerangkat();
+var_dump($res);
+
+//$test = new ReaderTest();
+//$result = $test->getAkunDanPerangat();
+//var_dump($result);

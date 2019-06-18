@@ -32,6 +32,11 @@ class PerangkatCreator implements InterfaceCreator
                 new Assert\NotNull(),
                 new Assert\NotBlank()
             ],
+            'tipe_perangkat' => [
+                new Assert\NotNull(),
+                new Assert\NotBlank()
+            ],
+            'deskripsi_lokasi_perangkat' => [],
             'deskripsi_perangkat' => [],
             'delete_at' => [],
             'last_update' => [],
@@ -67,8 +72,12 @@ class PerangkatCreator implements InterfaceCreator
 
     public function save($data)
     {
+        $tipe = $this->em->find('\Security\Entity\Tipe', $data['tipe_perangkat']);
+        
         $perangkat = new Perangkat();
         $perangkat->setId($data['id_perangkat']);
+        $perangkat->setTipe_perangkat($tipe);
+        $perangkat->setDeskripsi_lokasi_perangkat($data['deskripsi_lokasi_perangkat']);
         $perangkat->setDeskripsi_perangkat($data['deskripsi_perangkat']);
         $perangkat->setDelete_at($data['delete_at'] === null ? $data['delete_at'] : new \DateTime($data['delete_at']));
         $perangkat->setCreate_at($data['create_at'] === null ? $data['create_at'] : new \DateTime($data['create_at']));

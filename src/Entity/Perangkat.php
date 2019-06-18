@@ -17,7 +17,7 @@ class Perangkat
 
     /**
      * @ManyToOne(targetEntity="Tipe")
-     * @JoinColumn(name="tipe_perangkat", referencedColumnName="id")
+     * @JoinColumn(name="tipe_perangkat", referencedColumnName="id_tipe")
      */
     protected $tipe_perangkat;
 
@@ -51,7 +51,27 @@ class Perangkat
      */
     protected $create_by;
 
-    function getId()
+    function getTipe_perangkat()
+    {
+        return $this->tipe_perangkat;
+    }
+
+    function getDeskripsi_lokasi_perangkat()
+    {
+        return $this->deskripsi_lokasi_perangkat;
+    }
+
+    function setTipe_perangkat($tipe_perangkat)
+    {
+        $this->tipe_perangkat = $tipe_perangkat;
+    }
+
+    function setDeskripsi_lokasi_perangkat($deskripsi_lokasi_perangkat)
+    {
+        $this->deskripsi_lokasi_perangkat = $deskripsi_lokasi_perangkat;
+    }
+
+        function getId()
     {
         return $this->id;
     }
