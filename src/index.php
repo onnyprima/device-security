@@ -181,10 +181,15 @@ class ReaderTest
 
 }
 
-$test = new ReaderTest();
-$res = $test->sectest();
-var_dump($res);
-
+//$test = new ReaderTest();
+//$res = $test->sectest();
+//var_dump($res);
+$tipe = new \Security\Lib\Services\Security\TipeUpdater();
+$result = $tipe->update([
+    'id_tipe' => 2,
+    'nama' => 'DEKSTOP'
+]);
+var_dump($result);
 //$test = new ReaderTest();
 //$result = $test->getAkunDanPerangat();
 //var_dump($result);
