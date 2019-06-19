@@ -98,6 +98,17 @@ class Akun
         $this->create_by = $create_by;
     }
 
+    function getArrayResult()
+    {
+        return [
+            "id_akun" => $this->getId(),
+            "deskripsi_akun" => $this->getDeskripsi_akun(),
+            "delete_at" => $this->getDelete_at(),// === null ? $this->getDelete_at() : $this->getDelete_at()->format("Y-m-d H:i:s"),
+            "create_at" => $this->getCreate_at(),// === null ? $this->getCreate_at() : $this->getCreate_at()->format("Y-m-d H:i:s"),
+            "last_update" => $this->getLast_update(),// === null ? $this->getLast_update() : $this->getLast_update()->format("Y-m-d H:i:s"),
+            "create_by" => $this->getCreate_by()
+        ];
+    }
 }
 
 /* 

@@ -184,9 +184,14 @@ class ReaderTest
 //$test = new ReaderTest();
 //$res = $test->sectest();
 //var_dump($res);
-$tipe = new \Security\Lib\Services\Security\TipeReader();
-$result = $tipe->getListTipe();
-var_dump($result);
+$akun = new Security\Lib\Services\Security\AkunUpdater();
+$data = [
+    "id_akun" => "bot",
+    "deskripsi_akun" => "test data",
+    "delete_at" => null
+];
+$res = $akun->update($data);
+print_r($res);
 //$test = new ReaderTest();
 //$result = $test->getAkunDanPerangat();
 //var_dump($result);
