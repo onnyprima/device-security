@@ -13,7 +13,7 @@ class AkunReader
     {
         $this->em = Em::getEM();
     }
-    
+
     public function getAkunById($id)
     {
         $akun = $this->em->find('\Security\Entity\Akun', $id);
@@ -29,14 +29,16 @@ class AkunReader
         }
         return [];
     }
-    
-    public function getListAkun()
+
+    public function getListAkun($offset = 0, $limit = 25)
     {
         try {
             $qb = $this->em->createQueryBuilder();
             $q = $qb->select('p')
                     ->from('\Security\Entity\Akun', 'p')
                     ->orderBy('p.id', 'ASC')
+                    ->setFirstResult($offset)
+                    ->setMaxResults($limit)
                     ->getQuery();
             $result = $q->getResult();
 
@@ -59,7 +61,7 @@ class AkunReader
             echo $exc->getMessage();
         }
     }
-    
+
     public function isPerangkatDeleted($id)
     {
         $result = $this->getAkunByIdById($id);
@@ -68,6 +70,7 @@ class AkunReader
         }
         return false;
     }
+
 }
 
 /* 

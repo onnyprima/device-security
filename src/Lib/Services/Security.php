@@ -80,6 +80,10 @@ class Security
         return true;
     }
 
+    public function addPerangkat(array $data)
+    {
+        
+    }
 }
 
 /* 
