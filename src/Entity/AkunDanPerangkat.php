@@ -3,7 +3,6 @@ namespace Security\Entity;
 
 use Security\Entity\Perangkat;
 use Security\Entity\Akun;
-use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @Entity
  * @Table(name="tb_perangkat_dan_akun")

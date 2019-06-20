@@ -184,11 +184,11 @@ class ReaderTest
 //$test = new ReaderTest();
 //$res = $test->sectest();
 //var_dump($res);
-$akun = new Security\Lib\Services\Security\PerangkatUpdater();
+$akun = new Security\Lib\Services\Security\AkunDanPerangkatUpdater();
 $data = [
-    "id_perangkat" => "1560827428",
-    "tipe_perangkat" => 2,
-    "deskripsi_perangkat" => "test data",
+    "id_perangkat_dan_akun" => 2,
+    "id_perangkat" => '00:A0:C9:14:C8:29',
+    "id_akun" => 'admin',
     "delete_at" => null
 ];
 $res = $akun->update($data);

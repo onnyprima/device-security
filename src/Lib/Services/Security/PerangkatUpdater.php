@@ -65,6 +65,7 @@ class PerangkatUpdater
             
             return true;//$perangkat->getArrayResult();
         }
+        return $errors;
     }
     
     public function validate($data)
