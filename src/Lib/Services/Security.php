@@ -48,6 +48,11 @@ class Security
         return true;
     }
 
+    /**
+     * 
+     * @param type $idAkun
+     * @return boolean
+     */
     public function isAkunAllowed($idAkun)
     {
         $isAvailable = $this->akunReader->getAkunById($idAkun);
@@ -64,6 +69,12 @@ class Security
         return true;
     }
 
+    /**
+     * 
+     * @param type $idAkun
+     * @param type $idPerangkat
+     * @return boolean
+     */
     public function isAkunDanPerangkatAllowed($idAkun, $idPerangkat)
     {
         $isAvailable = $this->akunDanPerangkatReader->getAkunDanPerangkat($idPerangkat, $idAkun);
