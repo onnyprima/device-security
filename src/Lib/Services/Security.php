@@ -67,7 +67,7 @@ class Security
     public function isAkunDanPerangkatAllowed($idAkun, $idPerangkat)
     {
         $isAvailable = $this->akunDanPerangkatReader->getAkunDanPerangkat($idPerangkat, $idAkun);
-        
+
         if (count($isAvailable) === 0) {
             $this->message->addMessages("Akun dan Perangkat tidak terdaftar.");
             return $this->message->getMessages();
@@ -80,10 +80,6 @@ class Security
         return true;
     }
 
-    public function addPerangkat(array $data)
-    {
-        
-    }
 }
 
 /* 
