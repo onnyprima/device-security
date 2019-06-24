@@ -20,8 +20,8 @@ class TipeReader
 
         if (count($tipe) > 0) {
             return [
-                'id_tipe' => $tipe->getId,
-                'nama' => $tipe->getNama
+                'id_tipe' => $tipe->getId(),
+                'nama' => $tipe->getNama()
             ];
         }
         return [];

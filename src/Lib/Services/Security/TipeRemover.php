@@ -22,8 +22,8 @@ class TipeRemover
             $this->em->remove($tipe);
             $this->em->flush();
             return true;
-        } catch (Doctrine\ORM\Query\QueryException $e) {
-            echo $e->getMessage();
+        } catch (\Exception $e) {
+            return false;
         }
     }
 

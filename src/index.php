@@ -196,5 +196,11 @@ class ReaderTest
 //$test = new ReaderTest();
 //$result = $test->getAkunDanPerangat();
 //var_dump($result);
-$ap =  new \Security\Lib\Services\SecurityReader();
-$ap->getListAkunDanPerangkat();
+//$ap =  new \Security\Lib\Services\SecurityReader();
+//$ap->getListAkunDanPerangkat();
+$sec = new Security\Lib\Services\SecurityRemover();
+$idPerangkat = '00:A0:C9:14:C8:29';
+$idAkun = 'bot';
+$idTipe = 4;
+$res = $sec->removeTipe($idTipe);
+var_dump($res);
