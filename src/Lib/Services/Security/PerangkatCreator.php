@@ -3,7 +3,6 @@
 namespace Security\Lib\Services\Security;
 
 use Security\Lib\Services\Security\InterfaceCreator;
-use Security\Lib\Services\Validator\PerangkatValidator;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints as Assert;
 use Security\Entity\Perangkat;
@@ -18,7 +17,6 @@ class PerangkatCreator implements InterfaceCreator
 
     public function __construct()
     {
-        $this->validatorPerangkat = new PerangkatValidator();
         $this->em = Em::getEM();
         $this->validator = Validation::createValidatorBuilder()
                 ->addMethodMapping('loadValidatorMetadata')
